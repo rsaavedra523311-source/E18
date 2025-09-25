@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pig Dice Game</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: whitesmoke; /* light background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      /* removed global white text */
+    }
+
+    .game-container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,255,100,0.3);
+      width: 850px;
+      text-align: center;
+    }
+
+    .player {
+      padding: 20px;
+      border-radius: 10px;
+      transition: background-color 0.3s;
+      color: black; /* make player text black */
+    }
+
+    .player h3, 
+    .player p, 
+    .player span {
+      color: black; /* ensure black for names and scores */
+    }
+
+    .active {
+      background-color: rgba(0, 204, 68, 0.2); /* dark neon green highlight */
+    }
+
+    .winner {
+      background-color: #00cc44; /* dark neon green when winner */
+      color: black;
+      font-weight: bold;
+    }
+
+    .dice {
+      margin: 20px auto;
+      height: 120px;
+    }
+
+    .btn-custom {
+      font-weight: bold;
+      border-radius: 20px;
+      padding: 10px 25px;
+      margin: 10px;
+      transition: all 0.3s ease;
+    }
+
+    /* Shared Roll + Hold style */
+    .btn-roll, .btn-hold {
+      background-color: black;
+      border: 2px solid #00cc44;
+      color: #00cc44;
+    }
+    .btn-roll:hover, .btn-hold:hover {
+      background-color: #00cc44;
+      color: black;
+    }
+
+    .btn-new {
+      background-color: #111;
+      color: white;
+      border: 2px solid #00cc44;
+    }
+    .btn-new:hover {
+      background-color: #00cc44;
+      color: black;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    #message {
+      font-size: 1.4rem;
+      color: #00cc44;
+    }
+
+    .current-box {
+      background: #00cc44;
+      color: black;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <div class="row">
+      <div id="player1" class="col player active">
+        <h3>PLAYER 1</h3>
+        <p style="font-size:2.5rem;"><span id="score1">0</span></p>
+        <div class="current-box">
+          CURRENT: <span id="current1">0</span>
+        </div>
+      </div>
+      <div id="player2" class="col player">
+        <h3>PLAYER 2</h3>
+        <p style="font-size:2.5rem;"><span id="score2">0</span></p>
+        <div class="current-box">
+          CURRENT: <span id="current2">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dice -->
+    <img id="dice" class="dice" src="DICE.jpg" alt="Dice">
+
+    <!-- Buttons -->
+    <div class="mt-3">
+      <button id="rollBtn" class="btn btn-custom btn-roll">ROLL DICE</button>
+      <button id="holdBtn" class="btn btn-custom btn-hold">HOLD</button>
+      <button id="newGameBtn" class="btn btn-custom btn-new" style="display:none;">NEW GAME</button>
+    </div>
+
+    <p id="message" class="mt-3 fw-bold"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
